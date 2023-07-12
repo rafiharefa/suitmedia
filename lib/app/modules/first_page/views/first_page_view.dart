@@ -12,7 +12,7 @@ class FirstPageView extends GetView<FirstPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage('assets/images/background.png'))),
@@ -25,21 +25,21 @@ class FirstPageView extends GetView<FirstPageController> {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  child: Icon(
+                  backgroundColor: Colors.white.withOpacity(.4),
+                  child: const Icon(
                     Icons.person_add_alt_1,
                     color: Colors.white,
                   ),
-                  backgroundColor: Colors.white.withOpacity(.4),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Forms(controller: controller),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 CheckButton(controller: controller),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 NextButton(controller: controller)
@@ -76,9 +76,9 @@ class NextButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          maximumSize: Size(double.infinity, 60)),
-      child:
-          SizedBox(width: double.infinity, child: Center(child: Text('NEXT'))),
+          maximumSize: const Size(double.infinity, 60)),
+      child: const SizedBox(
+          width: double.infinity, child: Center(child: Text('NEXT'))),
     );
   }
 }
@@ -106,9 +106,9 @@ class CheckButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          maximumSize: Size(double.infinity, 60)),
-      child:
-          SizedBox(width: double.infinity, child: Center(child: Text('CHECK'))),
+          maximumSize: const Size(double.infinity, 60)),
+      child: const SizedBox(
+          width: double.infinity, child: Center(child: Text('CHECK'))),
     );
   }
 }

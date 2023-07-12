@@ -7,7 +7,7 @@ import 'package:suitmedia/app/data/variables.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

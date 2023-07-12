@@ -22,9 +22,10 @@ class FirstPageController extends GetxController {
     }
 
     if (reversedText == newText) {
-      Get.defaultDialog(title: 'sentence', content: Text('isPalindrome'));
+      Get.defaultDialog(title: 'sentence', content: const Text('isPalindrome'));
     } else {
-      Get.defaultDialog(title: 'sentence', content: Text('not Palindrome'));
+      Get.defaultDialog(
+          title: 'sentence', content: const Text('not Palindrome'));
     }
   }
 }

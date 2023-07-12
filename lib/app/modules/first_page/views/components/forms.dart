@@ -22,13 +22,13 @@ class Forms extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: FormBuilderTextField(
               cursorColor: Vars.cyan,
               key: controller.nameKey,
               validator: FormBuilderValidators.required(),
               name: 'name',
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Name',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: InputBorder.none,
@@ -37,19 +37,19 @@ class Forms extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(15)),
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: FormBuilderTextField(
               cursorColor: Vars.cyan,
               key: controller.palindromeKey,
               validator: FormBuilderValidators.required(),
               name: 'palindrome',
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   hintText: 'Palindrome',
                   hintStyle: TextStyle(color: Colors.grey),
                   focusedBorder: InputBorder.none,

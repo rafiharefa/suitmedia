@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_is_empty
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,72 +12,87 @@ class ThirdPageView extends GetView<ThirdPageController> {
   const ThirdPageView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
-
-
-    
-
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
-        title:  const Text('Third Screen'),
+        title: const Text('Third Screen'),
         centerTitle: true,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios_new), onPressed: () => Get.back()),
+        leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () => Get.back()),
       ),
       body: RefreshIndicator(
         onRefresh: controller.refresh,
         child: FutureBuilder(
-          future: controller.fetchUser(controller.pages),
-          builder: (context, snapshot) {
-            return Center(
-              child: snapshot.connectionState == ConnectionState.waiting ? CircularProgressIndicator() :
-                  //checking if the list is empty
-              controller.users.length == 0 ? Text('List is empty') :
-              Obx(
-                  () => ListView.builder(
-                    controller: controller.scrollController,
-                    itemCount: controller.users.length + 1,
-                    itemBuilder: ( context,  index){
-
-                      if(index < controller.users.length){
-                        final email = controller.users[index]['email'];
-                        final name = controller.users[index]['first_name'] + ' ' + controller.users[index]['last_name'];
-                        final avatar = controller.users[index]['avatar'];
-                        return Column(
-                          children: [
-                            ListTile(
-                              minVerticalPadding: 20,
-                                onTap: (){
-                                  Get.put(SecondPageController()).userName.value = name;
-                                  Get.back();
-                                },
-                                title: Text(name, style: TextStyle(fontWeight: FontWeight.bold ,fontSize: 20),),
-                              subtitle: Text(email),
-                              leading: CircleAvatar(
-                                radius: 30,
-                                backgroundImage: NetworkImage(avatar),
-                                backgroundColor: Vars.cyan,
-                              ),
-                            ),
-
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                              child: Divider(),
-                            )
-                          ],
-                        );
-                      }else{
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: controller.users.length == controller.totalUsers.value ? SizedBox() : Center(child: CircularProgressIndicator()),
-                        );
-                      }
-                    }),
-              )
-            );
-          }
-        ),
+            future: controller.fetchUser(controller.pages),
+            builder: (context, snapshot) {
+              return Center(
+                  child: snapshot.connectionState == ConnectionState.waiting
+                      ? const CircularProgressIndicator()
+                      :
+                      //checking if the list is empty
+                      controller.users.length == 0
+                          ? const Text('List is empty')
+                          : Obx(
+                              () => ListView.builder(
+                                  controller: controller.scrollController,
+                                  itemCount: controller.users.length + 1,
+                                  itemBuilder: (context, index) {
+                                    if (index < controller.users.length) {
+                                      final email =
+                                          controller.users[index]['email'];
+                                      final name = controller.users[index]
+                                              ['first_name'] +
+                                          ' ' +
+                                          controller.users[index]['last_name'];
+                                      final avatar =
+                                          controller.users[index]['avatar'];
+                                      return Column(
+                                        children: [
+                                          ListTile(
+                                            minVerticalPadding: 20,
+                                            onTap: () {
+                                              Get.put(SecondPageController())
+                                                  .userName
+                                                  .value = name;
+                                              Get.back();
+                                            },
+                                            title: Text(
+                                              name,
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20),
+                                            ),
+                                            subtitle: Text(email),
+                                            leading: CircleAvatar(
+                                              radius: 30,
+                                              backgroundImage:
+                                                  NetworkImage(avatar),
+                                              backgroundColor: Vars.cyan,
+                                            ),
+                                          ),
+                                          const Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 15.0),
+                                            child: Divider(),
+                                          )
+                                        ],
+                                      );
+                                    } else {
+                                      return Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 30),
+                                        child: controller.users.length ==
+                                                controller.totalUsers.value
+                                            ? const SizedBox()
+                                            : const Center(
+                                                child:
+                                                    CircularProgressIndicator()),
+                                      );
+                                    }
+                                  }),
+                            ));
+            }),
       ),
     );
   }
