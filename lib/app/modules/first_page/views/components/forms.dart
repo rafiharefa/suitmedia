@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -22,35 +21,28 @@ class Forms extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15)
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5 ),
+                color: Colors.white, borderRadius: BorderRadius.circular(15)),
+            padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: FormBuilderTextField(
               cursorColor: Vars.cyan,
               key: controller.nameKey,
               validator: FormBuilderValidators.required(),
               name: 'name',
               decoration: InputDecoration(
-                
-                  hintText: 'Name',
-
-                  hintStyle: TextStyle(color: Colors.grey),
-                  focusedBorder: InputBorder.none,
-                  border: InputBorder.none,
-                  errorStyle: TextStyle(fontSize: 10),
-
-
+                hintText: 'Name',
+                hintStyle: TextStyle(color: Colors.grey),
+                focusedBorder: InputBorder.none,
+                border: InputBorder.none,
+                errorStyle: TextStyle(fontSize: 10),
               ),
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Container(
-
             decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15)
-            ),
+                color: Colors.white, borderRadius: BorderRadius.circular(15)),
             padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: FormBuilderTextField(
               cursorColor: Vars.cyan,
@@ -60,17 +52,13 @@ class Forms extends StatelessWidget {
               decoration: InputDecoration(
                   hintText: 'Palindrome',
                   hintStyle: TextStyle(color: Colors.grey),
-                focusedBorder: InputBorder.none,
-                border: InputBorder.none,
-                errorStyle: TextStyle(fontSize: 10)
-              ),
+                  focusedBorder: InputBorder.none,
+                  border: InputBorder.none,
+                  errorStyle: TextStyle(fontSize: 10)),
             ),
           ),
         ],
       ),
-
-
-
     );
   }
 }

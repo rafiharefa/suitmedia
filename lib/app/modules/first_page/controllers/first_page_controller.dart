@@ -7,33 +7,24 @@ class FirstPageController extends GetxController {
   final nameKey = GlobalKey<FormBuilderFieldState>();
   final palindromeKey = GlobalKey<FormBuilderFieldState>();
 
-  void isPalindrome(String text){
-
+  void isPalindrome(String text) {
     String reversedText = '';
     String newText = '';
 
-    for(int i = 0; i <= text.length-1;i++){
-      if(text[i] != " "){
+    for (int i = 0; i <= text.length - 1; i++) {
+      if (text[i] != " ") {
         newText += text[i];
       }
     }
 
     for (int i = newText.length - 1; i >= 0; i--) {
-
-        reversedText += newText[i];
+      reversedText += newText[i];
     }
 
-
-
-    if(reversedText == newText){
-      Get.defaultDialog(title: 'sentence' ,content: Text('isPalindrome'));
-    }else{
-      Get.defaultDialog(title: 'sentence' ,content: Text('not Palindrome'));
-
+    if (reversedText == newText) {
+      Get.defaultDialog(title: 'sentence', content: Text('isPalindrome'));
+    } else {
+      Get.defaultDialog(title: 'sentence', content: Text('not Palindrome'));
     }
-
-
-
   }
-
 }
