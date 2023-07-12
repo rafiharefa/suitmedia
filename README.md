@@ -1,7 +1,7 @@
 
 # Suitmedia - Mobile Application Test
 
-Mobile Application developed to accomplish Suitmedia Test
+Mobile Application that developed to accomplish Suitmedia Test
 
 
 ## Links
